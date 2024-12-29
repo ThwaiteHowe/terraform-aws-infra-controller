@@ -1,0 +1,26 @@
+*.env
+# Ignore Terraform state files and backup
+*.tfstate
+*.tfstate.backup
+
+# Ignore Terraform CLI configuration files
+.terraform/
+.terraform.lock.hcl
+
+# Ignore sensitive variable files
+*.auto.tfvars
+*.auto.tfvars.json
+*.tfvars
+*.tfvars.json
+
+# Ignore crash logs and debug output
+crash.log
+*.tfplan
+*.tfplan.binary
+
+# Ignore temporary or system files
+*.swp
+*.bak
+*.tmp
+.DS_Store
+Thumbs.db
