@@ -3,7 +3,7 @@ terraform {
     organization = "Thwaitehowe"
 
     workspaces {
-      name = "skeleton-dev"
+      name = "skeleton-prod"
     }
   }
   required_providers {
