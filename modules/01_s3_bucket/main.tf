@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "thwaite_s3" {
   tags = {
     ManagedBy   = "Terraform"
     Project     = "Thwaitehowe"
-    Environment = "Prod"
+    Environment = upper(var.environment)
   }
 }
 
@@ -17,7 +17,6 @@ resource "aws_s3_bucket_website_configuration" "thwaite_s3_website" {
   error_document {
     key = "error.html"
   }
-
 }
 
 resource "aws_s3_bucket_public_access_block" "thwaite_s3_public_access_block" {
@@ -30,6 +29,6 @@ resource "aws_s3_bucket_public_access_block" "thwaite_s3_public_access_block" {
 
 resource "aws_s3_bucket_policy" "allow_public_get_access" {
   bucket     = aws_s3_bucket.thwaite_s3.id
-  policy     = file("${path.root}/templates/s3_bucket_policy.json")
+  policy     = file("${path.root}/templates/s3_bucket_${var.environment}_policy.json")
   depends_on = [aws_s3_bucket_public_access_block.thwaite_s3_public_access_block]
 }

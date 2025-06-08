@@ -3,8 +3,8 @@ variable "bucket_name" {
   type        = string
 }
 
-variable "acm_certificate_arn" {
-  description = "The ARN of the ACM certificate"
+variable "domain_name" {
+  description = "The domain name"
   type        = string
 }
 
@@ -16,4 +16,19 @@ variable "bucket_id" {
 variable "bucket_regional_domain_name" {
   type        = string
   description = "value of the regional domain name of the S3 bucket"
+}
+
+variable "environment" {
+  description = "The environment"
+  type        = string
+}
+
+variable "root_domain_name" {
+  description = "The root domain name"
+  type        = string
+}
+
+variable "existing_zone_id" {
+  description = "The existing zone id"
+  type        = string
 }
