@@ -84,7 +84,7 @@ resource "aws_cloudfront_distribution" "thwaite_s3_distribution" {
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "CDN for Thwaitehowe"
-  default_root_object = "index.html"
+  default_root_object = var.maintenance_mode ? "maintenance.html" : "index.html"
   price_class         = "PriceClass_All"
 
   viewer_certificate {

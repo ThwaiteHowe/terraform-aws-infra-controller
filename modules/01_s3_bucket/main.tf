@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "thwaite_s3" {
 resource "aws_s3_bucket_website_configuration" "thwaite_s3_website" {
   bucket = aws_s3_bucket.thwaite_s3.id
   index_document {
-    suffix = "index.html"
+    suffix = var.maintenance_mode ? "maintenance.html" : "index.html"
   }
   error_document {
     key = "error.html"

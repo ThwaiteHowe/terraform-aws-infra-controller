@@ -9,6 +9,7 @@ module "s3_bucket" {
   source      = "./modules/01_s3_bucket"
   bucket_name = var.bucket_name
   environment = var.environment
+  maintenance_mode = local.maintenance_mode
 }
 
 module "cloudfront" {
@@ -20,6 +21,7 @@ module "cloudfront" {
   root_domain_name            = var.root_domain_name
   domain_name                 = var.domain_name
   existing_zone_id            = aws_route53_zone.thwaitehowe_zone.zone_id
+  maintenance_mode            = local.maintenance_mode
 }
 
 module "route53" {
@@ -29,4 +31,3 @@ module "route53" {
   cloudfront_distribution_zone_id     = module.cloudfront.cloudfront_distribution_zone_id
   existing_zone_id                    = aws_route53_zone.thwaitehowe_zone.zone_id
 }
-
