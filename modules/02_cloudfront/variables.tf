@@ -32,3 +32,7 @@ variable "existing_zone_id" {
   description = "The existing zone id"
   type        = string
 }
+
+variable "maintenance_mode" {
+  default = false
+}

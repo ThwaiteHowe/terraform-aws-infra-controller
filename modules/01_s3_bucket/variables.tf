@@ -7,3 +7,7 @@ variable "environment" {
   description = "The environment"
   type        = string
 }
+
+variable "maintenance_mode" {
+  default = false
+}
